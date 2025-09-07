@@ -1,5 +1,9 @@
-section.like{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+section.like {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.like button {
+  border: none;
 }
