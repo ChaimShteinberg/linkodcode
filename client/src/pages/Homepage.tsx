@@ -7,6 +7,7 @@ function Homepage() {
   return (
     <>
       <h2>home</h2>
+      {/* A loop that goes through all posts and displays each one in a separate component */}
       <article>
         {posts.map((post: post, index: number) => (
           <Post
