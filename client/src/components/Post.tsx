@@ -1,12 +1,7 @@
+import type { post } from "../interfaces/post.interface.ts";
 import Like from "./Like";
 
-function Post(props: {
-  imgUrl: string;
-  description: string;
-  name: string;
-  time: string;
-  likes: number;
-}) {
+function Post(props: post) {
   return (
     <>
       <img src={props.imgUrl} alt="post-img" />
