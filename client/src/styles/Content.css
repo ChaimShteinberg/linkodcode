@@ -1,12 +1,9 @@
-h2{
-  margin: 20px;
-}
-
-article {
+main {
+  background-color: #f4f2ee;
   width: 100%;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;
 }

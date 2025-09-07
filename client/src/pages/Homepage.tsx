@@ -1,15 +1,14 @@
 import "../styles/homepage.css";
 import posts from "../assets/posts.json";
-import Header from "../components/Header.tsx";
 import type { post } from "../interfaces/post.interface.ts";
 import Post from "../components/Post.tsx";
 
 function Homepage() {
   return (
     <>
-      <Header />
-      <main>
-        <h2>home</h2>
+      <h2>home</h2>
+      {/* A loop that goes through all posts and displays each one in a separate component */}
+      <article>
         {posts.map((post: post, index: number) => (
           <Post
             key={index}
@@ -20,7 +19,7 @@ function Homepage() {
             likes={post.likes}
           />
         ))}
-      </main>
+      </article>
     </>
   );
 }

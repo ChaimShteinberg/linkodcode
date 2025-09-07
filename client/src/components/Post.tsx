@@ -5,7 +5,7 @@ import Like from "./Like";
 function Post(props: post) {
   return (
     <section className="post">
-      <img src={props.imgUrl} alt="post-img" className="postImg"/>
+      <img src={props.imgUrl} alt="post-img" className="postImg" />
       <section className="description">
         <h2>Description</h2>
         <p>{props.description}</p>
