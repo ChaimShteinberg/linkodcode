@@ -37,6 +37,8 @@ section.post {
   background-color: rgb(238, 238, 238);
   border: 1px solid rgb(204, 204, 204);
   border-radius: 5px;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .post footer {
@@ -45,6 +47,9 @@ section.post {
   align-items: center;
   justify-content: space-between;
   border: 1px solid rgb(204, 204, 204);
+  border-radius: 5px;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .post .postData {
