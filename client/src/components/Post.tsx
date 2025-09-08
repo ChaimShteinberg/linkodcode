@@ -1,11 +1,16 @@
 import "../styles/post.css";
 import type { post } from "../interfaces/post.interface.ts";
 import Like from "./Like";
+import { serverPath } from "../api/posts.ts";
 
 function Post(props: post) {
   return (
     <section className="post">
-      <img src={props.imgUrl} alt="post-img" className="postImg" />
+      <img
+        src={`${serverPath}${props.imgUrl}`}
+        alt="post-img"
+        className="postImg"
+      />
       <section className="description">
         <h2>Description</h2>
         <p>{props.description}</p>
