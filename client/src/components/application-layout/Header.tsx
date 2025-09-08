@@ -5,7 +5,7 @@ function Header() {
   return (
     <header>
       {/* logo */}
-      <img src="../../public/logo.png" alt="logo" />
+      <img src="/logo.png" alt="logo" />
       <h1>LinKodCode</h1>
     </header>
   );
