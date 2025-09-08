@@ -6,30 +6,43 @@ import { useEffect, useState } from "react";
 
 function Homepage() {
   const [posts, setPosts] = useState([]);
+  const [load, setLoad] = useState("loading");
 
   useEffect(() => {
     async function allPosts() {
-      setPosts(await getPosts());
+      const result = await getPosts();
+      if (result.msg === "The posts were successfully loaded") {
+        setLoad("posts");
+        setPosts(result.posts);
+      } else {
+        setLoad("error");
+      }
     }
     allPosts();
-  });
+  }, []);
 
   return (
     <>
       <h2>home</h2>
       {/* A loop that goes through all posts and displays each one in a separate component */}
-      <article>
-        {posts.map((post: post, index: number) => (
-          <Post
-            key={index}
-            imgUrl={post.imgUrl}
-            description={post.description}
-            name={post.name}
-            time={post.time}
-            likes={post.likes}
-          />
-        ))}
-      </article>
+      {load === "posts" ? (
+        <article>
+          {posts.map((post: post, index: number) => (
+            <Post
+              key={index}
+              imgUrl={post.imgUrl}
+              description={post.description}
+              name={post.name}
+              time={post.time}
+              likes={post.likes}
+            />
+          ))}
+        </article>
+      ) : load === "loading" ? (
+        <p>Loading posts...</p>
+      ) : (
+        <p>Error loading posts</p>
+      )}
     </>
   );
 }
