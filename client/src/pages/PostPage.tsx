@@ -1,0 +1,42 @@
+import "../styles/PostPage.css"
+import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { getPostById } from "../api/posts.ts";
+import type { post } from "../interfaces/post.interface.ts";
+import Post from "../components/Post.tsx";
+
+function PostPage() {
+  const params = useParams();
+  const [post, setPost] = useState<null | post>(null);
+
+  useEffect(() => {
+    async function allPosts() {
+      const result = await getPostById(params.id);
+      if (result.msg === "The posts were successfully loaded") {
+        setPost(result.post);
+      }
+    }
+    allPosts();
+  }, []);
+
+  return (
+    <>
+      <section id="postSection">
+        {post ? (
+          <Post
+            id={post.id}
+            imgUrl={post.imgUrl}
+            description={post.description}
+            name={post.name}
+            time={post.time}
+            likes={post.likes}
+          />
+        ) : (
+          <p>loading</p>
+        )}
+      </section>
+    </>
+  );
+}
+
+export default PostPage;

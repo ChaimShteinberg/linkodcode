@@ -3,9 +3,14 @@ header {
   padding: 30px;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
+}
+
+header section {
+  display: flex;
+  align-items: center;
 }
 
 header img {
