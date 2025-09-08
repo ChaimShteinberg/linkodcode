@@ -3,6 +3,7 @@ import type { post } from "../interfaces/post.interface.ts";
 import Post from "../components/Post.tsx";
 import { getPosts } from "../api/posts.ts";
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 function Homepage() {
   const [posts, setPosts] = useState([]);
@@ -24,6 +25,9 @@ function Homepage() {
   return (
     <>
       <h2>home</h2>
+      <Link to="/addPost" className="btn">
+        Add new post
+      </Link>
       {/* A loop that goes through all posts and displays each one in a separate component */}
       {load === "posts" ? (
         <article>
