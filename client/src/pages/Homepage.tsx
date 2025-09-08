@@ -27,9 +27,10 @@ function Homepage() {
       {/* A loop that goes through all posts and displays each one in a separate component */}
       {load === "posts" ? (
         <article>
-          {posts.map((post: post, index: number) => (
+          {posts.map((post: post) => (
             <Post
-              key={index}
+              key={post.id}
+              id={post.id}
               imgUrl={post.imgUrl}
               description={post.description}
               name={post.name}

@@ -3,3 +3,8 @@ nav{
       display: flex;
       gap: 10px;
 }
+
+nav a{
+    text-decoration: none;
+    color: #000;
+}

@@ -12,3 +12,19 @@ export async function getPosts() {
     return { msg: "Error loading posts" };
   }
 }
+
+export async function getPostById(id: string | undefined) {
+  try {
+    if (!id) {
+      throw new Error("id is not defined");
+    }
+    const res = await fetch(`${serverPath}/posts/${id}`);
+    const result = await res.json();
+    if (result.msg === "The posts were successfully loaded") {
+      return result;
+    }
+    throw new Error(result.msg);
+  } catch {
+    return { msg: "Error loading posts" };
+  }
+}
