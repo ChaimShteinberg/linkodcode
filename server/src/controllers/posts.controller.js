@@ -13,9 +13,11 @@ export function readAllPostsController(req, res) {
 }
 
 export function getPostByIdController(req, res) {
+  let id;
   try {
-    const id = Number(req.params.id);
+    id = Number(req.params.id);
   } catch {
+    console.log("error");
     res.json({ msg: "id is not a number" });
   }
   const post = getPostByIdService(id);
