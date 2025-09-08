@@ -27,3 +27,7 @@ export function getPostByIdController(req, res) {
     res.json({ msg: "Error loading post" });
   }
 }
+
+export function addPostController(req, res) {
+  console.log(req);
+}
