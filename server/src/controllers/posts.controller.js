@@ -29,5 +29,6 @@ export function getPostByIdController(req, res) {
 }
 
 export function addPostController(req, res) {
-  console.log(req);
+  console.log(req.files);
+  res.send("add");
 }

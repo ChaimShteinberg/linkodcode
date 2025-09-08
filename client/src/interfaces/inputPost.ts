@@ -1,5 +1,5 @@
 export interface inputPost {
-  imgUrl: File;
+  imgUrl: Object;
   description: string;
   name: string;
   time: Date;

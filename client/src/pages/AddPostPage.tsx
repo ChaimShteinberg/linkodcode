@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import "../styles/addPostPage.css";
+import { addPost } from "../api/posts";
 
 function AppPostPage() {
   const image = useRef<Object>(null);
@@ -15,7 +16,9 @@ function AppPostPage() {
             image: image.current,
             description: description.current,
             name: name.current,
+            time: new Date(),
           };
+          addPost(newPost)
         }}
       >
         <fieldset>

@@ -11,6 +11,6 @@ postsRoute.get("/getAll", readAllPostsController);
 
 postsRoute.get("/:id", getPostByIdController);
 
-postsRoute.post("addPost", addPostController);
+postsRoute.post("/addPost", addPostController);
 
 export default postsRoute;
