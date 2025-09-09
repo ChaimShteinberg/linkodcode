@@ -15,15 +15,12 @@ export async function getPosts() {
   }
 }
 
-export async function getPostById(newPost: inputPost) {
+export async function getPostById(id: string | undefined) {
   try {
-    const res = await fetch(`${serverPath}/posts/getAll`, {
-      method: "POST",
-      body: JSON.stringify(newPost),
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+    if (!id) {
+      throw new Error("id is not defined");
+    }
+    const res = await fetch(`${serverPath}/posts/${id}`);
     const result = await res.json();
     if (result.msg === "The posts were successfully loaded") {
       return result;
