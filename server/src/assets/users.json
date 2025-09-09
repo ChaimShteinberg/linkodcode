@@ -1,0 +1,22 @@
+[
+  {
+    "username": "chaim",
+    "hash_password": "$2b$12$0izA9lBv3XwqAcVKV5Ths.xyaJySlEjho3VMc3y7CO1ttT4sLhjV2",
+    "role": "user"
+  },
+  {
+    "username": "chaim",
+    "hash_password": "$2b$12$xw.Bpj6iLwVXwu3GEg72WOuwEmFScr0lVBuoCilaiJl4ufrsyHu1.",
+    "role": "user"
+  },
+  {
+    "username": "chaim",
+    "hash_password": "$2b$12$RuYcCpgzbrOgcDmyneRjNulEgz1D6jcVPiMoPUqHlqYXaFLQBuDwK",
+    "role": "user"
+  },
+  {
+    "username": "chaim",
+    "hash_password": "$2b$12$0/7vVL1T7fEMezM9WyF9wuDdC5WlaHqzJLerUz5LPITIGIHhtKwra",
+    "role": "user"
+  }
+]
