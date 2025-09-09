@@ -11,8 +11,3 @@ body #root {
   justify-content: flex-start;
   align-items: center;
 }
-
-a {
-  text-decoration: none;
-  color: black;
-}

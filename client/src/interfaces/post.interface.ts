@@ -1,6 +1,6 @@
 export interface post {
   id: number
-  imgUrl: string;
+  filename: string;
   description: string;
   name: string;
   time: string;
