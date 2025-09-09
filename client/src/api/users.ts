@@ -7,7 +7,8 @@ export async function handleSubmit(
   username: string,
   password: string,
   currentForm: string,
-  navigate: NavigateFunction
+  navigate: NavigateFunction,
+  setTest: Function
 ) {
   e.preventDefault();
   let result;
@@ -19,7 +20,7 @@ export async function handleSubmit(
   if (result && result.bool) {
     navigate("/");
   } else {
-    // alert(result.message);
+    setTest(result?.message);
   }
 }
 
@@ -36,7 +37,7 @@ export async function register(username: string, password: string) {
     const result = await res.json();
     return {
       bool: result.msg === "new user created successfully",
-      message: result.message,
+      message: result.msg,
     };
   } catch (err) {
     console.log(err);
@@ -56,7 +57,7 @@ export async function login(username: string, password: string) {
     const result = await res.json();
     return {
       bool: result.msg === "found user",
-      message: result.message,
+      message: result.msg,
     };
   } catch (err) {
     console.log(err);

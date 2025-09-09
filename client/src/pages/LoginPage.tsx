@@ -10,6 +10,7 @@ function LoginPage() {
   const [currentForm, setCurrentForm] = useState("Login");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [test, setTest] = useState(false)
 
   return (
     <main id="loginForm">
@@ -30,7 +31,7 @@ function LoginPage() {
 
       <form
         onSubmit={async (e) =>
-          handleSubmit(e, username, password, currentForm, navigate)
+          handleSubmit(e, username, password, currentForm, navigate, setTest)
         }
       >
         <FormSection
@@ -46,6 +47,8 @@ function LoginPage() {
           type="password"
           setInput={setPassword}
         />
+
+        {test && <p>{test}</p>}
 
         <button type="submit" className="btn">
           Submit
