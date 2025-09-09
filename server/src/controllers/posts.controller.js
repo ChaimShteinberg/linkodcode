@@ -1,4 +1,5 @@
 import {
+  addPostService,
   getAllPostsService,
   getPostByIdService,
 } from "../services/posts.service.js";
@@ -17,7 +18,6 @@ export function getPostByIdController(req, res) {
   try {
     id = Number(req.params.id);
   } catch {
-    console.log("error");
     res.json({ msg: "id is not a number" });
   }
   const post = getPostByIdService(id);
@@ -29,6 +29,8 @@ export function getPostByIdController(req, res) {
 }
 
 export function addPostController(req, res) {
-  console.log(req.files);
-  res.send("add");
+  const { filename } = req.file;
+  const { description, name, time } = req.body;
+  const result = addPostService({ filename, description, name, time });
+  res.json(result);
 }

@@ -25,7 +25,7 @@ function PostPage() {
         {post ? (
           <Post
             id={post.id}
-            imgUrl={post.imgUrl}
+            filename={post.filename}
             description={post.description}
             name={post.name}
             time={post.time}

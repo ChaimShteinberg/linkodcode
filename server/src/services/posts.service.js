@@ -1,4 +1,4 @@
-import { readposts } from "../dal/post.dal.js";
+import { readposts, writePosts } from "../dal/post.dal.js";
 
 export function getAllPostsService() {
   const posts = readposts();
@@ -17,4 +17,14 @@ export function getPostByIdService(id) {
   } catch (err) {
     return { msg: "Error loading post" };
   }
+}
+
+export function addPostService(newPost) {
+  const posts = readposts();
+  newPost["likes"] = 0;
+  newPost["id"] = posts.posts[0].id + 1;
+  posts.posts.unshift(newPost);
+  const res = writePosts(posts.posts);
+  if (res.msg === "The post was added successfully") return res;
+  return { msg: "Error adding post" };
 }

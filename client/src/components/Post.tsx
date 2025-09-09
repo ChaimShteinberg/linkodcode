@@ -9,7 +9,7 @@ function Post(props: post) {
     <section className="post">
       <Link to={`/post/${props.id}`}>
         <img
-          src={`${serverPath}${props.imgUrl}`}
+          src={`${serverPath}/images/${props.filename}`}
           alt="post-img"
           className="postImg"
         />

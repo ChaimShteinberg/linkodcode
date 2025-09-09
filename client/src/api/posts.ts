@@ -34,17 +34,14 @@ export async function getPostById(newPost: inputPost) {
   }
 }
 
-export async function addPost(newPost: any) {
+export async function addPost(newPost: FormData) {
   try {
     const res = await fetch(`${serverPath}/posts/addpost`, {
       method: "POST",
-      body: JSON.stringify(newPost),
-      headers: {
-        "content-type": "application/json",
-      },
+      body: newPost,
     });
     const result = await res.json();
-    if (result.msg === "The posts were successfully loaded") {
+    if (result.msg === "The post was added successfully") {
       return result;
     }
     throw new Error(result.msg);

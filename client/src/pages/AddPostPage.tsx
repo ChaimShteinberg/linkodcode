@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "../styles/addPostPage.css";
 import { addPost } from "../api/posts";
+import { useNavigate } from "react-router";
 
 function AppPostPage() {
+  const navigate = useNavigate();
   const [image, setImage] = useState<FileList | null>(null);
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
@@ -16,9 +18,14 @@ function AppPostPage() {
           if (image) formData.append("image", image[0]);
           formData.append("description", description);
           formData.append("name", name);
-          formData.append("time", String(new Date()));
-          console.log(formData);
-          addPost(formData);
+          formData.append("time", new Date().toLocaleString());
+          async function add() {
+            const result = await addPost(formData);
+            if (result.msg === "The post was added successfully") {
+              navigate("/")
+            }
+          }
+          add();
         }}
       >
         <fieldset>
