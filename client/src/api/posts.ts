@@ -1,5 +1,3 @@
-import type { inputPost } from "../interfaces/inputPost.ts";
-
 export const serverPath = "http://localhost:1568";
 
 export async function getPosts() {

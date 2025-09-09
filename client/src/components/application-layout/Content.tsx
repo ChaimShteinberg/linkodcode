@@ -1,8 +1,9 @@
 import "../../styles/Content.css";
-import Homepage from "../../pages/Homepage";
 import { Route, Routes } from "react-router";
-import PostPage from "../../pages/PostPage";
-import AppPostPage from "../../pages/AddPostPage";
+import Homepage from "../../pages/Homepage.tsx";
+import PostPage from "../../pages/PostPage.tsx";
+import AppPostPage from "../../pages/AddPostPage.tsx";
+import LoginPage from "../../pages/LoginPage.tsx";
 
 function Content() {
   // Location of the main content of the page
@@ -10,8 +11,9 @@ function Content() {
     <main>
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/post/:id" element={<PostPage />} />
-        <Route path="/addPost" element={<AppPostPage/>}/>
+        <Route path="/addPost" element={<AppPostPage />} />
       </Routes>
     </main>
   );
