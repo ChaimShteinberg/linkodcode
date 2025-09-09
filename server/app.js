@@ -5,7 +5,21 @@ import { usersRouter } from "./src/routes/auth.route.js";
 
 const app = express();
 
-app.use(cors());
+
+app.use(
+  cors({
+    origin: (origin, cb) => {
+      if (!origin) return cb(null, true);
+      if ("http://localhost:5173" === origin) {
+        cb(null, true);
+      } else {
+        cb(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
 
 app.use(express.static("public"));
 
