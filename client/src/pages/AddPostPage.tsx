@@ -1,24 +1,24 @@
-import { useRef } from "react";
+import { useState } from "react";
 import "../styles/addPostPage.css";
 import { addPost } from "../api/posts";
 
 function AppPostPage() {
-  const image = useRef<Object>(null);
-  const description = useRef("");
-  const name = useRef("");
+  const [image, setImage] = useState<FileList | null>(null);
+  const [description, setDescription] = useState("");
+  const [name, setName] = useState("");
 
   return (
     <>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          const newPost = {
-            image: image.current,
-            description: description.current,
-            name: name.current,
-            time: new Date(),
-          };
-          addPost(newPost)
+          const formData = new FormData();
+          if (image) formData.append("image", image[0]);
+          formData.append("description", description);
+          formData.append("name", name);
+          formData.append("time", String(new Date()));
+          console.log(formData);
+          addPost(formData);
         }}
       >
         <fieldset>
@@ -29,7 +29,7 @@ function AppPostPage() {
             id="image"
             name="image"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              image.current = e.target.files;
+              setImage(e.target.files);
             }}
             required
           />
@@ -42,7 +42,7 @@ function AppPostPage() {
             id="description"
             rows={10}
             onChange={(e) => {
-              description.current = e.target.value;
+              setDescription(e.target.value);
             }}
             required
           ></textarea>
@@ -55,7 +55,7 @@ function AppPostPage() {
             id="name"
             name="name"
             onChange={(e) => {
-              name.current = e.target.value;
+              setName(e.target.value);
             }}
             required
           />
