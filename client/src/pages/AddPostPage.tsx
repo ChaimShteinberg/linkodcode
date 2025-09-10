@@ -22,7 +22,9 @@ function AppPostPage() {
           async function add() {
             const result = await addPost(formData);
             if (result.msg === "The post was added successfully") {
-              navigate("/")
+              navigate("/");
+            } else if (result.msg === "You must log in to the system") {
+              navigate("/login");
             }
           }
           add();

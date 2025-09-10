@@ -7,6 +7,6 @@ export async function auth(req, res, next) {
     req.user = decoded;
     next();
   } catch (error) {
-    res.send(error.message);
+    res.send({msg: "You must log in to the system"});
   }
 }

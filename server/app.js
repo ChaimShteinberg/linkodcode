@@ -26,6 +26,11 @@ app.use(cookieParser());
 
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log(`method: ${req.method}, url: ${req.url}`);
+  next();
+});
+
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/users", usersRouter);

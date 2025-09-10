@@ -1,11 +1,13 @@
-import "../styles/PostPage.css"
-import { useParams } from "react-router";
+import "../styles/PostPage.css";
+import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { getPostById } from "../api/posts.ts";
 import type { post } from "../interfaces/post.interface.ts";
 import Post from "../components/Post.tsx";
 
 function PostPage() {
+  const navigate = useNavigate();
+
   const params = useParams();
   const [post, setPost] = useState<null | post>(null);
 
@@ -14,6 +16,8 @@ function PostPage() {
       const result = await getPostById(params.id);
       if (result.msg === "The posts were successfully loaded") {
         setPost(result.post);
+      } else if (result.msg === "You must log in to the system") {
+        navigate("/login");
       }
     }
     allPosts();

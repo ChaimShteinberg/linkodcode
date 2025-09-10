@@ -6,10 +6,7 @@ export async function getPosts() {
       credentials: "include",
     });
     const result = await res.json();
-    if (result.msg === "The posts were successfully loaded") {
-      return result;
-    }
-    throw new Error(result.msg);
+    return result;
   } catch {
     return { msg: "Error loading posts" };
   }
@@ -24,10 +21,7 @@ export async function getPostById(id: string | undefined) {
       credentials: "include",
     });
     const result = await res.json();
-    if (result.msg === "The posts were successfully loaded") {
-      return result;
-    }
-    throw new Error(result.msg);
+    return result;
   } catch {
     return { msg: "Error loading posts" };
   }
@@ -41,10 +35,7 @@ export async function addPost(newPost: FormData) {
       credentials: "include",
     });
     const result = await res.json();
-    if (result.msg === "The post was added successfully") {
-      return result;
-    }
-    throw new Error(result.msg);
+    return result;
   } catch {
     return { msg: "Error loading posts" };
   }
