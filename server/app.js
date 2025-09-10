@@ -2,9 +2,9 @@ import express from "express";
 import cors from "cors";
 import postsRoute from "./src/routes/posts.route.js";
 import { usersRouter } from "./src/routes/auth.route.js";
+import cookieParser from "cookie-parser";
 
 const app = express();
-
 
 app.use(
   cors({
@@ -20,8 +20,9 @@ app.use(
   })
 );
 
-
 app.use(express.static("public"));
+
+app.use(cookieParser());
 
 app.use(express.json());
 
