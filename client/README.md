@@ -38,5 +38,6 @@ When attempting to perform an operation in the system without a suitable token, 
 To run the website, run in the terminal Inside the client folder
 
 ```
+npm i
 npm run build
 ```
