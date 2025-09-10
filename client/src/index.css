@@ -6,6 +6,9 @@
 body #root {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f4f2ee;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
