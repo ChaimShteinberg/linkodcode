@@ -42,8 +42,14 @@ All post paths are protected by middleware that checks whether the user has a su
 
 ## run
 
-To run the site, run in the server folder
+To run the site,
+create a .env file and enter in it
 
+* port: to run the server
+* secret: to secure the token
+
+and then run it in the server folder
 ```
+npm i
 npm start
 ```
