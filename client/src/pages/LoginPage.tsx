@@ -9,10 +9,11 @@ function LoginPage() {
   const [currentForm, setCurrentForm] = useState("Login");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState(false)
+  const [message, setMessage] = useState(false);
 
   return (
     <main id="loginForm">
+      {/* Navigate between registration and login */}
       <nav id="form-toggle">
         <button
           id={currentForm === "Login" ? "active" : ""}
@@ -27,7 +28,7 @@ function LoginPage() {
           Register
         </button>
       </nav>
-
+      {/* Form for obtaining a username and password */}
       <form
         onSubmit={async (e) =>
           handleSubmit(e, username, password, currentForm, navigate, setMessage)

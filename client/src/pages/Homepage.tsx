@@ -18,9 +18,9 @@ function Homepage() {
       <Link to="/addPost" className="btn">
         Add new post
       </Link>
-      {/* A loop that goes through all posts and displays each one in a separate component */}
       {load === "posts" ? (
         <article>
+          {/* A loop that goes through all posts and displays each one in a separate component */}
           {posts.map((post: post) => (
             <Post
               key={post.id}

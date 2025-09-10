@@ -5,6 +5,7 @@ import type { post } from "../interfaces/post.interface.ts";
 import Post from "../components/Post.tsx";
 import { getPostService } from "../services/post.service.ts";
 
+// This page is designed to display one post.
 function PostPage() {
   const navigate = useNavigate();
   const params = useParams();

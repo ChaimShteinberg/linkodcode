@@ -6,7 +6,7 @@ import AppPostPage from "../../pages/AddPostPage.tsx";
 import LoginPage from "../../pages/LoginPage.tsx";
 
 function Content() {
-  // Location of the main content of the page
+// The location of the main content of the page where all pages are routed
   return (
     <main>
       <Routes>

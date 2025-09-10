@@ -1,6 +1,10 @@
 import type { NavigateFunction } from "react-router";
 import { addPostApi, getPostByIdApi, getPostsApi } from "../api/posts.ts";
 
+// In all functions on this page
+// If no user is logged in, it navigates to the login page
+
+// Handles loading of all posts
 export function getPostsService(
   setLoad: Function,
   setPosts: Function,
@@ -20,6 +24,7 @@ export function getPostsService(
   allPosts();
 }
 
+// Handles loading a post by ID
 export function getPostService(
   id: string | undefined,
   setPost: Function,
@@ -36,6 +41,7 @@ export function getPostService(
   getPost();
 }
 
+// Handles adding a post
 export function addPostService(
   e: React.FormEvent<HTMLFormElement>,
   image: FileList | null,

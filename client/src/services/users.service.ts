@@ -1,6 +1,7 @@
 import type { NavigateFunction } from "react-router";
 import { loginApi, registerApi } from "../api/users.ts";
 
+// Handles sending the registration/login form
 export async function handleSubmit(
   e: React.FormEvent<HTMLFormElement>,
   username: string,

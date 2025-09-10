@@ -4,6 +4,7 @@ import Like from "./Like";
 import { serverPath } from "../api/posts.ts";
 import { Link } from "react-router";
 
+// Website post structure
 function Post(props: post) {
   return (
     <section className="post">

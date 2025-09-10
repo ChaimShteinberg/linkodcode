@@ -1,5 +1,6 @@
 export const serverPath = "http://localhost:1568";
 
+// Sends an API request to register a new user
 export async function registerApi(username: string, password: string) {
   try {
     const res = await fetch(`${serverPath}/users/register`, {
@@ -20,6 +21,7 @@ export async function registerApi(username: string, password: string) {
   }
 }
 
+// Sends an API request for user authentication
 export async function loginApi(username: string, password: string) {
   try {
     const res = await fetch(`${serverPath}/users/login`, {

@@ -11,6 +11,7 @@ function AppPostPage() {
 
   return (
     <>
+    {/* Form for receiving a new post */}
       <form
         onSubmit={(e) => addPostService(e, image, description, name, navigate)}
       >
