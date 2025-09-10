@@ -12,7 +12,7 @@ export async function getPostsApi() {
   }
 }
 
-export async function getPostById(id: string | undefined) {
+export async function getPostByIdApi(id: string | undefined) {
   try {
     if (!id) {
       throw new Error("id is not defined");

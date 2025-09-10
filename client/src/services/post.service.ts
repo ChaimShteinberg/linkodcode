@@ -1,5 +1,5 @@
 import type { NavigateFunction } from "react-router";
-import { getPostsApi } from "../api/posts";
+import { getPostByIdApi, getPostsApi } from "../api/posts.ts";
 
 export function getPostsService(
   setLoad: Function,
@@ -18,4 +18,20 @@ export function getPostsService(
     }
   }
   allPosts();
+}
+
+export function getPostService(
+  id: string | undefined,
+  setPost: Function,
+  navigate: NavigateFunction
+) {
+  async function getPost() {
+    const result = await getPostByIdApi(id);
+    if (result.msg === "The posts were successfully loaded") {
+      setPost(result.post);
+    } else if (result.msg === "You must log in to the system") {
+      navigate("/login");
+    }
+  }
+  getPost();
 }
