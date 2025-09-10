@@ -1,0 +1,39 @@
+main#loginForm {
+  width: 90%;
+  min-height: 100%;
+  max-width: 600px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  background-color: white;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+#loginForm form {
+  width: 100%;
+  background-color: #f4f2ee;
+  margin: 0;
+}
+
+nav#form-toggle {
+  width: 100%;
+  display: flex;
+  gap: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#form-toggle button {
+  background-color: #f4f2ee;
+  width: 50%;
+  height: 100%;
+  padding: 20px;
+  border: none;
+}
+
+nav #active {
+  background: #003d6c;
+  color: white;
+}
