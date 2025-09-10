@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
 
+// Checks if there is a token in the cookies
+// and validates it
 export async function auth(req, res, next) {
   try {
     const token = req.cookies.token;
@@ -7,6 +9,6 @@ export async function auth(req, res, next) {
     req.user = decoded;
     next();
   } catch (error) {
-    res.send({msg: "You must log in to the system"});
+    res.send({ msg: "You must log in to the system" });
   }
 }

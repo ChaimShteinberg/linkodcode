@@ -2,6 +2,8 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { readUsers, writeUsers } from "../dal/users.dal.js";
 
+// Encrypts the password and inserts the new user into the user list
+// and returns a token
 export async function registerService(username, password) {
   const hash_password = await bcrypt.hash(password, 12);
   const users = readUsers();
@@ -15,6 +17,8 @@ export async function registerService(username, password) {
   return { msg: users.msg };
 }
 
+// Loads all users and checks if there is a user with that name
+// and returns a token
 export async function loginService(username, password) {
   const users = readUsers();
   if (users.msg === "The users were successfully loaded") {
@@ -28,6 +32,8 @@ export async function loginService(username, password) {
   return { msg: users.msg };
 }
 
+// Loops through all users and checks if the user exists
+// and also if the passwords match
 async function searchUser(users, username, password) {
   for (const user of users) {
     if (user.username === username) {
@@ -36,5 +42,5 @@ async function searchUser(users, username, password) {
       return { msg: "found user", user };
     }
   }
-  return {msg: "user not found"}
+  return { msg: "user not found" };
 }
