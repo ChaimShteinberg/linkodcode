@@ -7,6 +7,7 @@ import {
 } from "../controllers/posts.controller.js";
 import { auth } from "../middlewares/auth.middleware.js";
 
+// Moves the attachment to the public/images folder
 const storge = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "public/images/");
@@ -20,6 +21,7 @@ const upload = multer({ storage: storge });
 
 const postsRoute = express.Router();
 
+// middleware that authenticates the user
 postsRoute.use(auth);
 
 postsRoute.get("/getAll", readAllPostsController);

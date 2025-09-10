@@ -6,11 +6,10 @@ function Header() {
   return (
     <header>
       <section>
-      {/* logo */}
-      <img src="/logo.png" alt="logo" />
-      <h1>LinKodCode</h1>
+        <img src="/logo.png" alt="logo" />
+        <h1>LinKodCode</h1>
       </section>
-      <Navbar/>
+      <Navbar />
     </header>
   );
 }

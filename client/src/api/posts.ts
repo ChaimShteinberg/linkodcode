@@ -1,6 +1,7 @@
 export const serverPath = "http://localhost:1568";
 
-export async function getPosts() {
+// Sends an API request to get all posts
+export async function getPostsApi() {
   try {
     const res = await fetch(`${serverPath}/posts/getAll`, {
       credentials: "include",
@@ -11,8 +12,8 @@ export async function getPosts() {
     return { msg: "Error loading posts" };
   }
 }
-
-export async function getPostById(id: string | undefined) {
+// Sends an API request to get a post by ID
+export async function getPostByIdApi(id: string | undefined) {
   try {
     if (!id) {
       throw new Error("id is not defined");
@@ -27,7 +28,8 @@ export async function getPostById(id: string | undefined) {
   }
 }
 
-export async function addPost(newPost: FormData) {
+// Sends an API request with a new post to add to the posts list
+export async function addPostApi(newPost: FormData) {
   try {
     const res = await fetch(`${serverPath}/posts/addpost`, {
       method: "POST",

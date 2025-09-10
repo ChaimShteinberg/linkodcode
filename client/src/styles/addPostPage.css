@@ -1,6 +1,5 @@
 form {
-  width: 90%;
-  max-width: 600px;
+  width: 100%;
   background-color: white;
   margin: 40px;
   padding: 20px;
@@ -24,7 +23,7 @@ fieldset {
 input, textarea {
   width: 100%;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 7px;
   border: 1px solid #dbdbdb;
   box-sizing: border-box;
 }

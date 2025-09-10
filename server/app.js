@@ -33,8 +33,10 @@ app.use((req, res, next) => {
 
 app.use(express.urlencoded({ extended: true }));
 
+// Navigates all users-related requests
 app.use("/users", usersRouter);
 
+// Navigates all posts-related requests
 app.use("/posts", postsRoute);
 
 app.listen(process.env.PORT, () => {

@@ -4,6 +4,7 @@ import {
   getPostByIdService,
 } from "../services/posts.service.js";
 
+// Handles all posts request
 export function readAllPostsController(req, res) {
   const posts = getAllPostsService();
   if (posts.msg === "The posts were successfully loaded") {
@@ -13,6 +14,7 @@ export function readAllPostsController(req, res) {
   }
 }
 
+// Handles post request by ID
 export function getPostByIdController(req, res) {
   let id;
   try {
@@ -28,6 +30,7 @@ export function getPostByIdController(req, res) {
   }
 }
 
+// Handles add post request
 export function addPostController(req, res) {
   const { filename } = req.file;
   const { description, name, time } = req.body;
