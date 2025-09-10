@@ -1,6 +1,6 @@
 export const serverPath = "http://localhost:1568";
 
-export async function getPosts() {
+export async function getPostsApi() {
   try {
     const res = await fetch(`${serverPath}/posts/getAll`, {
       credentials: "include",

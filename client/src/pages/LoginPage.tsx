@@ -1,16 +1,15 @@
 import "../styles/LoginPage.css";
 import { useState } from "react";
 import FormSection from "../components/FormSection.tsx";
-import { handleSubmit } from "../api/users.ts";
 import { useNavigate } from "react-router";
+import { handleSubmit } from "../services/users.service.ts";
 
 function LoginPage() {
   const navigate = useNavigate();
-
   const [currentForm, setCurrentForm] = useState("Login");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [test, setTest] = useState(false)
+  const [message, setMessage] = useState(false)
 
   return (
     <main id="loginForm">
@@ -31,7 +30,7 @@ function LoginPage() {
 
       <form
         onSubmit={async (e) =>
-          handleSubmit(e, username, password, currentForm, navigate, setTest)
+          handleSubmit(e, username, password, currentForm, navigate, setMessage)
         }
       >
         <FormSection
@@ -48,7 +47,7 @@ function LoginPage() {
           setInput={setPassword}
         />
 
-        {test && <p>{test}</p>}
+        {message && <p>{message}</p>}
 
         <button type="submit" className="btn">
           Submit

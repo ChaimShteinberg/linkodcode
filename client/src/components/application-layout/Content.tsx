@@ -10,8 +10,8 @@ function Content() {
   return (
     <main>
       <Routes>
-        <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<Homepage />} />
         <Route path="/post/:id" element={<PostPage />} />
         <Route path="/addPost" element={<AppPostPage />} />
       </Routes>

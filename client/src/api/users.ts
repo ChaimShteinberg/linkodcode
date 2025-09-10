@@ -1,30 +1,6 @@
-import type { NavigateFunction } from "react-router";
-
 export const serverPath = "http://localhost:1568";
 
-export async function handleSubmit(
-  e: React.FormEvent<HTMLFormElement>,
-  username: string,
-  password: string,
-  currentForm: string,
-  navigate: NavigateFunction,
-  setTest: Function
-) {
-  e.preventDefault();
-  let result;
-  if (currentForm === "Login") {
-    result = await login(username, password);
-  } else if (currentForm === "Register") {
-    result = await register(username, password);
-  }
-  if (result && result.bool) {
-    navigate("/");
-  } else {
-    setTest(result?.message);
-  }
-}
-
-export async function register(username: string, password: string) {
+export async function registerApi(username: string, password: string) {
   try {
     const res = await fetch(`${serverPath}/users/register`, {
       method: "POST",
@@ -40,11 +16,11 @@ export async function register(username: string, password: string) {
       message: result.msg,
     };
   } catch (err) {
-    console.log(err);
+    return { message: err };
   }
 }
 
-export async function login(username: string, password: string) {
+export async function loginApi(username: string, password: string) {
   try {
     const res = await fetch(`${serverPath}/users/login`, {
       method: "POST",
@@ -60,6 +36,6 @@ export async function login(username: string, password: string) {
       message: result.msg,
     };
   } catch (err) {
-    console.log(err);
+    return { message: err };
   }
 }

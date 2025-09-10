@@ -3,14 +3,14 @@ import type { post } from "../interfaces/post.interface.ts";
 import Post from "../components/Post.tsx";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { getPostService } from "../services/post.service.ts";
+import { getPostsService } from "../services/post.service.ts";
 
 function Homepage() {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [load, setLoad] = useState("loading");
 
-  useEffect(()=>getPostService(setLoad, setPosts, navigate), []);
+  useEffect(() => getPostsService(setLoad, setPosts, navigate), []);
 
   return (
     <>
@@ -36,7 +36,7 @@ function Homepage() {
       ) : load === "loading" ? (
         <p>Loading posts...</p>
       ) : (
-        <p>Error loading posts</p>
+        <p>{load}</p>
       )}
     </>
   );
