@@ -1,5 +1,5 @@
 import type { NavigateFunction } from "react-router";
-import { getPostByIdApi, getPostsApi } from "../api/posts.ts";
+import { addPostApi, getPostByIdApi, getPostsApi } from "../api/posts.ts";
 
 export function getPostsService(
   setLoad: Function,
@@ -34,4 +34,28 @@ export function getPostService(
     }
   }
   getPost();
+}
+
+export function addPostService(
+  e: React.FormEvent<HTMLFormElement>,
+  image: FileList | null,
+  description: string,
+  name: string,
+  navigate: NavigateFunction
+) {
+  e.preventDefault();
+  const formData = new FormData();
+  if (image) formData.append("image", image[0]);
+  formData.append("description", description);
+  formData.append("name", name);
+  formData.append("time", new Date().toLocaleString());
+  async function add() {
+    const result = await addPostApi(formData);
+    if (result.msg === "The post was added successfully") {
+      navigate("/");
+    } else if (result.msg === "You must log in to the system") {
+      navigate("/login");
+    }
+  }
+  add();
 }

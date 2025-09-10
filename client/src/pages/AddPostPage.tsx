@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/addPostPage.css";
-import { addPost } from "../api/posts";
 import { useNavigate } from "react-router";
+import { addPostService } from "../services/post.service.ts";
 
 function AppPostPage() {
   const navigate = useNavigate();
@@ -12,23 +12,7 @@ function AppPostPage() {
   return (
     <>
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          const formData = new FormData();
-          if (image) formData.append("image", image[0]);
-          formData.append("description", description);
-          formData.append("name", name);
-          formData.append("time", new Date().toLocaleString());
-          async function add() {
-            const result = await addPost(formData);
-            if (result.msg === "The post was added successfully") {
-              navigate("/");
-            } else if (result.msg === "You must log in to the system") {
-              navigate("/login");
-            }
-          }
-          add();
-        }}
+        onSubmit={(e) => addPostService(e, image, description, name, navigate)}
       >
         <fieldset>
           <label htmlFor="image">Upload the image to the post</label>

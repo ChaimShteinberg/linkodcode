@@ -27,7 +27,7 @@ export async function getPostByIdApi(id: string | undefined) {
   }
 }
 
-export async function addPost(newPost: FormData) {
+export async function addPostApi(newPost: FormData) {
   try {
     const res = await fetch(`${serverPath}/posts/addpost`, {
       method: "POST",
