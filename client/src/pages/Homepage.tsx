@@ -1,33 +1,20 @@
 import "../styles/homepage.css";
 import type { post } from "../interfaces/post.interface.ts";
 import Post from "../components/Post.tsx";
-import { getPosts } from "../api/posts.ts";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router";
+import { getPostService } from "../services/post.service.ts";
 
 function Homepage() {
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [load, setLoad] = useState("loading");
 
-  useEffect(() => {
-    async function allPosts() {
-      const result = await getPosts();
-      if (result.msg === "The posts were successfully loaded") {
-        setLoad("posts");
-        setPosts(result.posts);
-      } else if (result.msg === "You must log in to the system") {
-        navigate("/login");
-      } else {
-        setLoad("error");
-      }
-    }
-    allPosts();
-  }, []);
+  useEffect(()=>getPostService(setLoad, setPosts, navigate), []);
 
   return (
     <>
-      <h2>home</h2>
+      <h2>Posts</h2>
       <Link to="/addPost" className="btn">
         Add new post
       </Link>
