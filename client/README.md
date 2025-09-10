@@ -41,3 +41,66 @@ To run the website, run in the terminal Inside the client folder
 npm i
 npm run build
 ```
+
+
+## Folder structure
+
+```
+[client]
+    ├── .gitignore
+    ├── eslint.config.js
+    ├── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── [public]
+        └── logo.png
+    ├── README.md
+    ├── [src]
+        ├── [api]
+            ├── posts.ts
+            └── users.ts
+        ├── App.css
+        ├── App.tsx
+        ├── [assets]
+            ├── [icons]
+                └── like.svg
+            └── [images]
+                └── IMG-20230206-WA0001.jpg
+        ├── [components]
+            ├── [application-layout]
+                ├── Content.tsx
+                ├── Header.tsx
+                └── Navbar.tsx
+            ├── FormSection.tsx
+            ├── Like.tsx
+            └── Post.tsx
+        ├── index.css
+        ├── [interfaces]
+            └── post.interface.ts
+        ├── main.tsx
+        ├── [pages]
+            ├── AddPostPage.tsx
+            ├── Homepage.tsx
+            ├── LoginPage.tsx
+            └── PostPage.tsx
+        ├── [services]
+            ├── post.service.ts
+            └── users.service.ts
+        ├── [styles]
+            ├── addPostPage.css
+            ├── Content.css
+            ├── formSection.css
+            ├── header.css
+            ├── homepage.css
+            ├── like.css
+            ├── LoginPage.css
+            ├── navbar.css
+            ├── post.css
+            └── PostPage.css
+        └── vite-env.d.ts
+    ├── tsconfig.app.json
+    ├── tsconfig.json
+    ├── tsconfig.node.json
+    └── vite.config.ts
+
+```
