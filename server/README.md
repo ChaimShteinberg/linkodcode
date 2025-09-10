@@ -45,5 +45,5 @@ All post paths are protected by middleware that checks whether the user has a su
 To run the site, run in the server folder
 
 ```
-npm run build
+npm start
 ```
